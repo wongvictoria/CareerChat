@@ -97,13 +97,13 @@ class PostingDetailViewController: UIViewController {
         switch segue.identifier ?? "" {
         case "AddReview" :
             let navigationController = segue.destination as! UINavigationController
-            let destination = navigationController.viewControllers.first as! ReviewTableViewController
+            let destination = navigationController.viewControllers.first as! CommentTableViewController
             destination.posting = posting
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
         case "ShowReview" :
-            let destination = segue.destination as! ReviewTableViewController
+            let destination = segue.destination as! CommentTableViewController
             destination.posting = posting
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             destination.review = reviews.reviewArray[selectedIndexPath.row]

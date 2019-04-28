@@ -1,8 +1,9 @@
 //
 //  AddPostingTableViewController.swift
-//  
+//  CareerChat
 //
 //  Created by Victoria Wong on 4/28/19.
+//  Copyright © 2019 Victoria Wong. All rights reserved.
 //
 
 import UIKit
