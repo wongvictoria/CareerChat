@@ -7,17 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B519A99322735C25008A6C2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B519A99222735C25008A6C2D /* GoogleService-Info.plist */; };
+		B519A995227372A7008A6C2D /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519A994227372A7008A6C2D /* Posting.swift */; };
+		B519F7342273F74900B63749 /* PostingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519F7332273F74900B63749 /* PostingsTableViewCell.swift */; };
+		B519F7362274231400B63749 /* Postings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519F7352274231400B63749 /* Postings.swift */; };
+		B51C993822751B8F00CFF787 /* PostingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C993722751B8F00CFF787 /* PostingDetailViewController.swift */; };
+		B51C993A22752F0300CFF787 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C993922752F0300CFF787 /* Photos.swift */; };
+		B51C993C22752F6100CFF787 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C993B22752F6100CFF787 /* Photo.swift */; };
+		B51C993E22753CAE00CFF787 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C993D22753CAE00CFF787 /* Review.swift */; };
+		B51C994022753CEC00CFF787 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C993F22753CEC00CFF787 /* Reviews.swift */; };
+		B51C9942227541BF00CFF787 /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C9941227541BE00CFF787 /* UIView+addBorder.swift */; };
+		B51C99442275423C00CFF787 /* Double+roundTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C99432275423C00CFF787 /* Double+roundTo.swift */; };
+		B51C99462275678000CFF787 /* AddPostingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C99452275678000CFF787 /* AddPostingTableViewController.swift */; };
 		B56D7BA92272B60B0098B135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D7BA82272B60B0098B135 /* AppDelegate.swift */; };
-		B56D7BAB2272B60B0098B135 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D7BAA2272B60B0098B135 /* ViewController.swift */; };
+		B56D7BAB2272B60B0098B135 /* PostingsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D7BAA2272B60B0098B135 /* PostingsListViewController.swift */; };
 		B56D7BAE2272B60B0098B135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56D7BAC2272B60B0098B135 /* Main.storyboard */; };
 		B56D7BB02272B6120098B135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56D7BAF2272B6120098B135 /* Assets.xcassets */; };
 		B56D7BB32272B6120098B135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56D7BB12272B6120098B135 /* LaunchScreen.storyboard */; };
+		F4DEB57806689AB95E5B49F3 /* Pods_CareerChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7588E4D79F71184808ADB7 /* Pods_CareerChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3688F8AA0D7775E02250FCD4 /* Pods-CareerChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareerChat.release.xcconfig"; path = "Target Support Files/Pods-CareerChat/Pods-CareerChat.release.xcconfig"; sourceTree = "<group>"; };
+		632F4EA36573BFF42DCE2178 /* Pods-CareerChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareerChat.debug.xcconfig"; path = "Target Support Files/Pods-CareerChat/Pods-CareerChat.debug.xcconfig"; sourceTree = "<group>"; };
+		8B7588E4D79F71184808ADB7 /* Pods_CareerChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareerChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B519A99222735C25008A6C2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B519A994227372A7008A6C2D /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
+		B519F7332273F74900B63749 /* PostingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingsTableViewCell.swift; sourceTree = "<group>"; };
+		B519F7352274231400B63749 /* Postings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Postings.swift; path = /Users/VictoriaWong/Desktop/CareerChat/CareerChat/Postings.swift; sourceTree = "<absolute>"; };
+		B51C993722751B8F00CFF787 /* PostingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostingDetailViewController.swift; path = /Users/VictoriaWong/Desktop/CareerChat/CareerChat/PostingDetailViewController.swift; sourceTree = "<absolute>"; };
+		B51C993922752F0300CFF787 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		B51C993B22752F6100CFF787 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B51C993D22753CAE00CFF787 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		B51C993F22753CEC00CFF787 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		B51C9941227541BE00CFF787 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
+		B51C99432275423C00CFF787 /* Double+roundTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+roundTo.swift"; sourceTree = "<group>"; };
+		B51C99452275678000CFF787 /* AddPostingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPostingTableViewController.swift; path = /Users/VictoriaWong/Desktop/CareerChat/CareerChat/AddPostingTableViewController.swift; sourceTree = "<absolute>"; };
 		B56D7BA52272B60B0098B135 /* CareerChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareerChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56D7BA82272B60B0098B135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B56D7BAA2272B60B0098B135 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B56D7BAA2272B60B0098B135 /* PostingsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingsListViewController.swift; sourceTree = "<group>"; };
 		B56D7BAD2272B60B0098B135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B56D7BAF2272B6120098B135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56D7BB22272B6120098B135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DEB57806689AB95E5B49F3 /* Pods_CareerChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +69,8 @@
 			children = (
 				B56D7BA72272B60B0098B135 /* CareerChat */,
 				B56D7BA62272B60B0098B135 /* Products */,
+				F71CA5BE2975DCA9CFE44D95 /* Pods */,
+				FE8FC1BD6928B9E9110B52BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +86,42 @@
 			isa = PBXGroup;
 			children = (
 				B56D7BA82272B60B0098B135 /* AppDelegate.swift */,
-				B56D7BAA2272B60B0098B135 /* ViewController.swift */,
+				B519F7352274231400B63749 /* Postings.swift */,
+				B519A994227372A7008A6C2D /* Posting.swift */,
+				B51C993F22753CEC00CFF787 /* Reviews.swift */,
+				B51C993D22753CAE00CFF787 /* Review.swift */,
+				B51C993922752F0300CFF787 /* Photos.swift */,
+				B51C993B22752F6100CFF787 /* Photo.swift */,
+				B56D7BAA2272B60B0098B135 /* PostingsListViewController.swift */,
+				B519F7332273F74900B63749 /* PostingsTableViewCell.swift */,
+				B51C993722751B8F00CFF787 /* PostingDetailViewController.swift */,
+				B51C99452275678000CFF787 /* AddPostingTableViewController.swift */,
 				B56D7BAC2272B60B0098B135 /* Main.storyboard */,
+				B51C9941227541BE00CFF787 /* UIView+addBorder.swift */,
+				B51C99432275423C00CFF787 /* Double+roundTo.swift */,
 				B56D7BAF2272B6120098B135 /* Assets.xcassets */,
 				B56D7BB12272B6120098B135 /* LaunchScreen.storyboard */,
 				B56D7BB42272B6120098B135 /* Info.plist */,
+				B519A99222735C25008A6C2D /* GoogleService-Info.plist */,
 			);
 			path = CareerChat;
+			sourceTree = "<group>";
+		};
+		F71CA5BE2975DCA9CFE44D95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				632F4EA36573BFF42DCE2178 /* Pods-CareerChat.debug.xcconfig */,
+				3688F8AA0D7775E02250FCD4 /* Pods-CareerChat.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE8FC1BD6928B9E9110B52BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7588E4D79F71184808ADB7 /* Pods_CareerChat.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B56D7BB72272B6120098B135 /* Build configuration list for PBXNativeTarget "CareerChat" */;
 			buildPhases = (
+				36C6C7DA987A4FE90F9CFB57 /* [CP] Check Pods Manifest.lock */,
 				B56D7BA12272B60B0098B135 /* Sources */,
 				B56D7BA22272B60B0098B135 /* Frameworks */,
 				B56D7BA32272B60B0098B135 /* Resources */,
+				21D260B996F1DA140DEF3E5B /* [CP] Embed Pods Frameworks */,
+				D7F2083783A8FBB29C5043D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56D7BB32272B6120098B135 /* LaunchScreen.storyboard in Resources */,
+				B519A99322735C25008A6C2D /* GoogleService-Info.plist in Resources */,
 				B56D7BB02272B6120098B135 /* Assets.xcassets in Resources */,
 				B56D7BAE2272B60B0098B135 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +194,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21D260B996F1DA140DEF3E5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareerChat/Pods-CareerChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareerChat/Pods-CareerChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36C6C7DA987A4FE90F9CFB57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CareerChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7F2083783A8FBB29C5043D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareerChat/Pods-CareerChat-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareerChat/Pods-CareerChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B56D7BA12272B60B0098B135 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B56D7BAB2272B60B0098B135 /* ViewController.swift in Sources */,
+				B519F7342273F74900B63749 /* PostingsTableViewCell.swift in Sources */,
+				B56D7BAB2272B60B0098B135 /* PostingsListViewController.swift in Sources */,
+				B519F7362274231400B63749 /* Postings.swift in Sources */,
+				B51C993C22752F6100CFF787 /* Photo.swift in Sources */,
+				B51C994022753CEC00CFF787 /* Reviews.swift in Sources */,
 				B56D7BA92272B60B0098B135 /* AppDelegate.swift in Sources */,
+				B51C993E22753CAE00CFF787 /* Review.swift in Sources */,
+				B51C993A22752F0300CFF787 /* Photos.swift in Sources */,
+				B51C9942227541BF00CFF787 /* UIView+addBorder.swift in Sources */,
+				B51C993822751B8F00CFF787 /* PostingDetailViewController.swift in Sources */,
+				B51C99442275423C00CFF787 /* Double+roundTo.swift in Sources */,
+				B51C99462275678000CFF787 /* AddPostingTableViewController.swift in Sources */,
+				B519A995227372A7008A6C2D /* Posting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +452,7 @@
 		};
 		B56D7BB82272B6120098B135 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632F4EA36573BFF42DCE2178 /* Pods-CareerChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +471,7 @@
 		};
 		B56D7BB92272B6120098B135 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3688F8AA0D7775E02250FCD4 /* Pods-CareerChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>181334922461-4ruup2ug8re6mqres1ib9udlimq6t4ae.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.181334922461-4ruup2ug8re6mqres1ib9udlimq6t4ae</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCI_dpgkqGx9sb1i-1K6WT0PoEyNr1doJY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>181334922461</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Victoria-Wong.CareerChat</string>
+	<key>PROJECT_ID</key>
+	<string>career-chat-8a7c9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>career-chat-8a7c9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:181334922461:ios:4787b81819e58cc3</string>
+	<key>DATABASE_URL</key>
+	<string>https://career-chat-8a7c9.firebaseio.com</string>
+</dict>
+</plist>
