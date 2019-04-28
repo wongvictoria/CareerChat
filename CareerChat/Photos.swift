@@ -29,7 +29,7 @@ class Photos {
             }
             self.photoArray = []
             var loadAttempts = 0
-            let storageRef = storage.reference().child(spot.documentID)
+            let storageRef = storage.reference().child(posting.documentID)
             for document in querySnapshot!.documents {
                 let photo = Photo(dictionary: document.data())
                 photo.documentUUID = document.documentID

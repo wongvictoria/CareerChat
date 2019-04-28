@@ -91,7 +91,7 @@ class Posting: NSObject, MKAnnotation {
             }
         } else {
             var ref: DocumentReference? = nil // let firestore create the new documentID
-            ref = db.collection("spots").addDocument(data: dataToSave) { error in
+            ref = db.collection("postings").addDocument(data: dataToSave) { error in
                 if let error = error {
                     print ("*** ERROR creating document \(self.documentID) \(error.localizedDescription)")
                     completed (false)

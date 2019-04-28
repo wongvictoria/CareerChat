@@ -10,7 +10,7 @@ import GooglePlaces
 import MapKit
 import Contacts
 
-class SpotDetailViewController: UIViewController {
+class PostingDetailViewController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var addressField: UITextField!
@@ -237,7 +237,7 @@ class SpotDetailViewController: UIViewController {
         leaveViewController()
     }
 }
-extension SpotDetailViewController: GMSAutocompleteViewControllerDelegate {
+extension PostingDetailViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -326,7 +326,7 @@ extension PostingDetailViewController: CLLocationManagerDelegate {
     }
 }
 
-extension SpotDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension PostingDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.reviewArray.count
     }
@@ -344,7 +344,7 @@ extension PostingDetailViewController: UICollectionViewDelegate, UICollectionVie
         return photos.photoArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SpotPhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PostingPhotosCollectionViewCell
         cell.photo = photos.photoArray[indexPath.row]
         return cell
     }
@@ -355,7 +355,7 @@ extension PostingDetailViewController: UINavigationControllerDelegate, UIImagePi
         let photo = Photo()
         photo.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         dismiss(animated: true) {
-            photo.saveData(spot: self.spot) { (success) in
+            photo.saveData(posting: self.posting) { (success) in
                 
             }
         }

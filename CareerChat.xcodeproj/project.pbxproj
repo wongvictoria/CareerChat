@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5175A2B22764FA200F1A504 /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5175A2A22764FA200F1A504 /* CommentTableViewController.swift */; };
 		B519A99322735C25008A6C2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B519A99222735C25008A6C2D /* GoogleService-Info.plist */; };
 		B519A995227372A7008A6C2D /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519A994227372A7008A6C2D /* Posting.swift */; };
 		B519F7342273F74900B63749 /* PostingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519F7332273F74900B63749 /* PostingsTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 		3688F8AA0D7775E02250FCD4 /* Pods-CareerChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareerChat.release.xcconfig"; path = "Target Support Files/Pods-CareerChat/Pods-CareerChat.release.xcconfig"; sourceTree = "<group>"; };
 		632F4EA36573BFF42DCE2178 /* Pods-CareerChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareerChat.debug.xcconfig"; path = "Target Support Files/Pods-CareerChat/Pods-CareerChat.debug.xcconfig"; sourceTree = "<group>"; };
 		8B7588E4D79F71184808ADB7 /* Pods_CareerChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareerChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5175A2A22764FA200F1A504 /* CommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 		B519A99222735C25008A6C2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B519A994227372A7008A6C2D /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		B519F7332273F74900B63749 /* PostingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				B519F7332273F74900B63749 /* PostingsTableViewCell.swift */,
 				B51C993722751B8F00CFF787 /* PostingDetailViewController.swift */,
 				B51C99452275678000CFF787 /* AddPostingTableViewController.swift */,
+				B5175A2A22764FA200F1A504 /* CommentTableViewController.swift */,
 				B56D7BAC2272B60B0098B135 /* Main.storyboard */,
 				B51C9941227541BE00CFF787 /* UIView+addBorder.swift */,
 				B51C99432275423C00CFF787 /* Double+roundTo.swift */,
@@ -304,6 +307,7 @@
 				B56D7BA92272B60B0098B135 /* AppDelegate.swift in Sources */,
 				B51C993E22753CAE00CFF787 /* Review.swift in Sources */,
 				B51C993A22752F0300CFF787 /* Photos.swift in Sources */,
+				B5175A2B22764FA200F1A504 /* CommentTableViewController.swift in Sources */,
 				B51C9942227541BF00CFF787 /* UIView+addBorder.swift in Sources */,
 				B51C993822751B8F00CFF787 /* PostingDetailViewController.swift in Sources */,
 				B51C99442275423C00CFF787 /* Double+roundTo.swift in Sources */,

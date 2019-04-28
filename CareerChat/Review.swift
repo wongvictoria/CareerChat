@@ -72,7 +72,7 @@ class Review {
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref?.documentID ?? "unknown")")
-                    spot.updateAvergeRating {
+                    posting.updateAvergeRating {
                         completed(true)
                     }
                 }
@@ -88,7 +88,7 @@ class Review {
                     print("ERROR: deleted review documentID \(self.documentID) \(error.localizedDescription)")
                     completed(false)
                 } else {
-                    spot.updateAvergeRating {
+                    posting.updateAvergeRating {
                         completed(true)
                     }
                 }
