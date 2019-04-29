@@ -14,6 +14,7 @@ import MapKit
 class Posting: NSObject, MKAnnotation {
     var name: String
     var address: String
+    var text: String
     var coordinate: CLLocationCoordinate2D
     var averageRating: Double
     var numberOfReviews: Int

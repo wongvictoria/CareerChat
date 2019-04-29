@@ -7,84 +7,124 @@
 //
 
 import UIKit
+import Firebase
 
 class AddPostingTableViewController: UITableViewController {
+    
+    @IBOutlet weak var companyNameField: UITextField!
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var programNameField: UITextView!
+    @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var lookupPlaceButton: UIButton!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    
+    var posting: Posting!
+    var review: Review!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        guard (posting) != nil else {
+            print("*** ERROR: did not have a valid Posting in PostingDetailViewController.")
+            return
+        }
+        if review == nil {
+            review = Review()
+        }
+        updateUserInterface()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func updateUserInterface() {
+        companyNameField.text = posting.name
+        programNameField.text = posting.text
+        
+        dateField.text = posting.text
+        descriptionField.text  = posting.text
+        enableDisableSaveButton()
+        if review.documentID == "" { // this is a new review
+            addBordersToEditableObjects()
+        } else {
+            if review.reviewerUserID == Auth.auth().currentUser?.email {
+                self.navigationItem.leftItemsSupplementBackButton = false
+                saveBarButton.title = "Update"
+                addBordersToEditableObjects()
+                deleteButton.isHidden = false
+            } else { //this review was posted by another user
+                cancelButton.title = ""
+                saveBarButton.title = ""
+            }
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func addBordersToEditableObjects() {
+        companyNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        programNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        dateField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        descriptionField.addBorder(width: 0.5, radius: 5.0, color: .black)
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func enableDisableSaveButton() {
+        if companyNameField.text != "" || programNameField.text != "" || dateField.text != "" || descriptionField.text != "" {
+            saveBarButton.isEnabled = true
+        } else {
+            saveBarButton.isEnabled = false
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func saveThenSegue() {
+        posting.text = companyNameField.text!
+        posting.text = programNameField.text!
+        posting.text = dateField.text!
+        posting.text = descriptionField.text!
+        review.saveData(posting: posting) { (success) in
+            if success {
+                self.leaveViewController()
+            } else {
+                print("*** ERROR: couldn't leave this view controller because data was not saved")
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func leaveViewController() {
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    @IBAction func reviewTitleChanged(_ sender: UITextField) {
+        enableDisableSaveButton()
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    @IBAction func returnTitleDonePressed(_ sender: UITextField) {
+        saveThenSegue()
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        review.deleteData(spot: spot) { (success) in
+            if success {
+                self.leaveViewController()
+            } else {
+                print("ERROR: delete unsuccessful")
+            }
+        }
     }
-    */
-
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        leaveViewController()
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        saveThenSegue()
+    }
 }
+
+

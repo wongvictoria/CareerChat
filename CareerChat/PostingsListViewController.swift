@@ -20,21 +20,21 @@ class PostingsListViewController: UIViewController {
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
+    
     var postings: Postings!
     var authUI: FUIAuth!
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation!
     
-    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
-        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isHidden = false
+        tableView.isHidden = true
         
         postings = Postings()
         
@@ -98,13 +98,15 @@ class PostingsListViewController: UIViewController {
         case 2: //avg. rating
             print("TODO")
         default:
-            print("ERROR: Hey, you should've gotten here, our segment control only has three segments")
+            print("ERROR: Hey, you should not have gotten here, our segment control only has three segments")
         }
         tableView.reloadData()
     }
     
     @IBAction func sortSegmentPressed(_ sender: UISegmentedControl) {
+        sortBasedOnSegmentPressed()
     }
+    
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
         do {
             try authUI!.signOut()
