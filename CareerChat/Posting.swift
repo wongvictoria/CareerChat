@@ -40,17 +40,6 @@ class Posting: NSObject, MKAnnotation {
         return address
     }
     
-    var programText: String? {
-        return text
-    }
-    
-    var dateText: String? {
-        return text
-    }
-    
-    var descriptionText: String? {
-        return text
-    }
     
     var dictionary: [String: Any] {
         return ["name": name, "address": address, "longitude": longitude, "latitude": latitude, "averageRating": averageRating, "numberOfReviews": numberOfReviews, "postingUserID": postingUserID]

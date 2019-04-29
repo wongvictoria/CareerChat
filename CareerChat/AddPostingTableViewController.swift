@@ -22,7 +22,7 @@ class AddPostingTableViewController: UITableViewController {
     @IBOutlet weak var deleteButton: UIButton!
     
     var posting: Posting!
-    var review: Review!
+    var programdetail: ProgramDetail!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +34,23 @@ class AddPostingTableViewController: UITableViewController {
             print("*** ERROR: did not have a valid Posting in PostingDetailViewController.")
             return
         }
-        if review == nil {
-            review = Review()
+        if programdetail == nil {
+            programdetail = ProgramDetail()
         }
         updateUserInterface()
     }
     
     func updateUserInterface() {
-        companyNameField.text = posting.name
-        programNameField.text = posting.programText
-        addressLabel.text = posting.address
-        dateField.text = posting.dateText
-        descriptionField.text  = posting.descriptionText
+        companyNameField.text = programdetail.name
+        programNameField.text = programdetail.programText
+        addressLabel.text = programdetail.address
+        dateField.text = programdetail.dateText
+        descriptionField.text  = programdetail.descriptionText
         enableDisableSaveButton()
-        if review.documentID == "" { // this is a new review
+        if programdetail.documentID == "" { // this is a new review
             addBordersToEditableObjects()
         } else {
-            if review.reviewerUserID == Auth.auth().currentUser?.email {
+            if programdetail.companyUserID == Auth.auth().currentUser?.email {
                 self.navigationItem.leftItemsSupplementBackButton = false
                 saveBarButton.title = "Update"
                 addBordersToEditableObjects()
@@ -78,11 +78,11 @@ class AddPostingTableViewController: UITableViewController {
     }
     
     func saveThenSegue() {
-        posting.text = companyNameField.text!
-        posting.text = programNameField.text!
-        posting.text = dateField.text!
-        posting.text = descriptionField.text!
-        review.saveData(posting: posting) { (success) in
+        programdetail.text = companyNameField.text!
+        programdetail.text = programNameField.text!
+        programdetail.text = dateField.text!
+        programdetail.text = descriptionField.text!
+        programdetail.saveData(posting: posting) { (success) in
             if success {
                 self.leaveViewController()
             } else {
@@ -111,7 +111,7 @@ class AddPostingTableViewController: UITableViewController {
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        review.deleteData(posting: posting) { (success) in
+        programdetail.deleteData(posting: posting) { (success) in
             if success {
                 self.leaveViewController()
             } else {

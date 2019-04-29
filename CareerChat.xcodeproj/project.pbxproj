@@ -27,6 +27,8 @@
 		B56D7BB32272B6120098B135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56D7BB12272B6120098B135 /* LaunchScreen.storyboard */; };
 		B57149372276651A003567FD /* PostingPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57149362276651A003567FD /* PostingPhotosCollectionViewCell.swift */; };
 		B571493922766789003567FD /* PostingReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571493822766789003567FD /* PostingReviewsTableViewCell.swift */; };
+		B571493B2276C5CD003567FD /* ProgramDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571493A2276C5CD003567FD /* ProgramDetail.swift */; };
+		B571493D2276C74A003567FD /* ProgramDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571493C2276C74A003567FD /* ProgramDetails.swift */; };
 		F4DEB57806689AB95E5B49F3 /* Pods_CareerChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7588E4D79F71184808ADB7 /* Pods_CareerChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		B56D7BB42272B6120098B135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B57149362276651A003567FD /* PostingPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		B571493822766789003567FD /* PostingReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingReviewsTableViewCell.swift; sourceTree = "<group>"; };
+		B571493A2276C5CD003567FD /* ProgramDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetail.swift; sourceTree = "<group>"; };
+		B571493C2276C74A003567FD /* ProgramDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				B51C993D22753CAE00CFF787 /* Review.swift */,
 				B51C993922752F0300CFF787 /* Photos.swift */,
 				B51C993B22752F6100CFF787 /* Photo.swift */,
+				B571493A2276C5CD003567FD /* ProgramDetail.swift */,
+				B571493C2276C74A003567FD /* ProgramDetails.swift */,
 				B56D7BAA2272B60B0098B135 /* PostingsListViewController.swift */,
 				B519F7332273F74900B63749 /* PostingsTableViewCell.swift */,
 				B51C993722751B8F00CFF787 /* PostingDetailViewController.swift */,
@@ -315,8 +321,10 @@
 				B51C993E22753CAE00CFF787 /* Review.swift in Sources */,
 				B571493922766789003567FD /* PostingReviewsTableViewCell.swift in Sources */,
 				B51C993A22752F0300CFF787 /* Photos.swift in Sources */,
+				B571493B2276C5CD003567FD /* ProgramDetail.swift in Sources */,
 				B5175A2B22764FA200F1A504 /* CommentTableViewController.swift in Sources */,
 				B51C9942227541BF00CFF787 /* UIView+addBorder.swift in Sources */,
+				B571493D2276C74A003567FD /* ProgramDetails.swift in Sources */,
 				B51C993822751B8F00CFF787 /* PostingDetailViewController.swift in Sources */,
 				B51C99442275423C00CFF787 /* Double+roundTo.swift in Sources */,
 				B5175A2D2276595900F1A504 /* AddPostingTableViewController.swift in Sources */,
