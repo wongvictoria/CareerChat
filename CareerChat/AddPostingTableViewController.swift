@@ -13,11 +13,13 @@ class AddPostingTableViewController: UITableViewController {
     
     @IBOutlet weak var companyNameField: UITextField!
     @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var programNameField: UITextView!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var lookupPlaceButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var posting: Posting!
     var review: Review!
@@ -40,10 +42,10 @@ class AddPostingTableViewController: UITableViewController {
     
     func updateUserInterface() {
         companyNameField.text = posting.name
-        programNameField.text = posting.text
-        
-        dateField.text = posting.text
-        descriptionField.text  = posting.text
+        programNameField.text = posting.programText
+        addressLabel.text = posting.address
+        dateField.text = posting.dateText
+        descriptionField.text  = posting.descriptionText
         enableDisableSaveButton()
         if review.documentID == "" { // this is a new review
             addBordersToEditableObjects()
@@ -109,7 +111,7 @@ class AddPostingTableViewController: UITableViewController {
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        review.deleteData(spot: spot) { (success) in
+        review.deleteData(posting: posting) { (success) in
             if success {
                 self.leaveViewController()
             } else {
