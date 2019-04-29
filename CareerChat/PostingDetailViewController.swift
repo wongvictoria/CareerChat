@@ -14,7 +14,6 @@ class PostingDetailViewController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var addressField: UITextField!
-    @IBOutlet weak var averageRatingLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
@@ -71,16 +70,6 @@ class PostingDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         reviews.loadData(posting: posting) {
             self.tableView.reloadData()
-            if self.reviews.reviewArray.count > 0 {
-                var total = 0
-                for review in self.reviews.reviewArray {
-                    total = total + review.rating
-                }
-                let average = Double(total) / Double(self.reviews.reviewArray.count)
-                self.averageRatingLabel.text = "\(average.roundTo(places: 1))"
-            } else {
-                self.averageRatingLabel.text = "-.-"
-            }
         }
         photos.loadData(posting: posting) {
             self.tableView.reloadData()
@@ -95,20 +84,20 @@ class PostingDetailViewController: UIViewController {
         posting.name = nameField.text!
         posting.address = addressField.text!
         switch segue.identifier ?? "" {
-        case "AddReview" :
+        case "AddComment" :
             let navigationController = segue.destination as! UINavigationController
             let destination = navigationController.viewControllers.first as! CommentTableViewController
             destination.posting = posting
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
-        case "ShowReview" :
+        case "ShowComment" :
             let destination = segue.destination as! CommentTableViewController
             destination.posting = posting
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             destination.review = reviews.reviewArray[selectedIndexPath.row]
         default:
-            print("** ERROR: did not have a segue in SpotDetailViewController prepare(for segue:)")
+            print("** ERROR: did not have a segue in PostingDetailViewController prepare(for segue:)")
         }
         
     }
@@ -130,7 +119,7 @@ class PostingDetailViewController: UIViewController {
                 self.cancelBarButton.title = ""
                 self.navigationController?.setToolbarHidden(true, animated: true)
                 self.disableTextEditing()
-                if segueIdentifier == "AddReview" {
+                if segueIdentifier == "AddComment" {
                     self.performSegue(withIdentifier: segueIdentifier, sender: nil)
                 } else {
                     self.cameraOrLibraryAlert()
@@ -208,9 +197,9 @@ class PostingDetailViewController: UIViewController {
     
     @IBAction func reviewButtonPressed(_ sender: UIButton) {
         if posting.documentID == "" {
-            saveCancelAlert(title: "This venue has not been saved", message: "You must save this venue before you review it", segueIdentifier: "AddReview")
+            saveCancelAlert(title: "This venue has not been saved", message: "You must save this venue before you review it", segueIdentifier: "AddComment")
         } else {
-            performSegue(withIdentifier: "AddReview", sender: nil)
+            performSegue(withIdentifier: "AddComment", sender: nil)
         }
         //saveCancelAlert performSegue(withIdentifier: "AddReview", sender: nil)
     }
@@ -225,12 +214,6 @@ class PostingDetailViewController: UIViewController {
                 print ("***ERROR: Couldn't leave this view controller because data wasn't saved.")
             }
         }
-    }
-    
-    @IBAction func lookupPlacePressed(_ sender: UIBarButtonItem) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {

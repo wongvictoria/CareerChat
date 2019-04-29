@@ -12,20 +12,18 @@ import Firebase
 class Review {
     var title: String
     var text: String
-    var rating: Int
     var reviewerUserID: String
     var date: Date
     var documentID: String
     
     var dictionary: [String: Any] {
         let timeIntervalDate = date.timeIntervalSince1970
-        return ["title" : title, "text": text, "rating" : rating, "reviewUserID": reviewerUserID, "date" : timeIntervalDate, "documentID" : documentID]
+        return ["title" : title, "text": text, "reviewUserID": reviewerUserID, "date" : timeIntervalDate, "documentID" : documentID]
     }
     
-    init(title: String, text: String, rating: Int, reviewerUserID: String, date: Date, documentID: String) {
+    init(title: String, text: String, reviewerUserID: String, date: Date, documentID: String) {
         self.title = title
         self.text = text
-        self.rating = rating
         self.reviewerUserID = reviewerUserID
         self.date = date
         self.documentID = documentID
@@ -34,17 +32,16 @@ class Review {
     convenience init(dictionary: [String: Any]) {
         let title = dictionary["title"] as! String? ?? ""
         let text = dictionary["text"] as! String? ?? ""
-        let rating = dictionary["rating"] as! Int? ?? 0
         let reviewerUserID = dictionary["reviewUserID"] as! String
         let timeIntervalDate = dictionary["date"] as! TimeInterval? ?? TimeInterval()
         let date = Date(timeIntervalSince1970: timeIntervalDate)
-        self.init(title: title, text: text, rating: rating, reviewerUserID: reviewerUserID, date: date, documentID: "")
+        self.init(title: title, text: text, reviewerUserID: reviewerUserID, date: date, documentID: "")
     }
     
     
     convenience init() {
         let currentUserID = Auth.auth().currentUser?.email ?? "Unknown User"
-        self.init(title: "", text: "", rating: 0, reviewerUserID: currentUserID, date: Date(), documentID: "")
+        self.init(title: "", text: "", reviewerUserID: currentUserID, date: Date(), documentID: "")
     }
     
     func saveData(posting: Posting, completed: @escaping (Bool) -> ()) {
@@ -55,7 +52,7 @@ class Review {
             let ref = db.collection("postings").document(posting.documentID).collection("reviews").document(self.documentID)
             ref.setData(dataToSave) { (error) in
                 if let error = error {
-                    print ("*** ERROR Updating docuemnt \(self.documentID) \(error.localizedDescription)")
+                    print ("*** ERROR Updating docuement \(self.documentID) \(error.localizedDescription)")
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref.documentID)")
@@ -68,7 +65,7 @@ class Review {
             var ref: DocumentReference? = nil // let firestore create the new documentID
             ref = db.collection("postings").document(posting.documentID).collection("reviews").addDocument(data: dataToSave) { error in
                 if let error = error {
-                    print ("*** ERROR creating document in spot \(posting.documentID) for new review doucmentID \(error.localizedDescription)")
+                    print ("*** ERROR creating document in posting \(posting.documentID) for new review doucmentID \(error.localizedDescription)")
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref?.documentID ?? "unknown")")

@@ -93,7 +93,7 @@
                                             <outlet property="locationLabel" destination="iqZ-qx-2xc" id="810-KB-Z6e"/>
                                             <outlet property="nameLabel" destination="WA0-kl-scb" id="fD2-al-223"/>
                                             <outlet property="ratingLabel" destination="uak-vO-2YV" id="d8p-fc-STy"/>
-                                            <segue destination="FLN-eK-nOC" kind="show" id="7h8-Cl-gll"/>
+                                            <segue destination="FLN-eK-nOC" kind="show" identifier="ShowPosting" id="7h8-Cl-gll"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -272,6 +272,9 @@
                                             <state key="normal" title="Photo">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="photoButtonPressed:" destination="FLN-eK-nOC" eventType="touchUpInside" id="w2T-EN-asM"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYr-Qe-e58">
                                             <rect key="frame" x="323" y="346" width="91" height="29"/>
@@ -286,6 +289,9 @@
                                             <state key="normal" title="Comment">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="reviewButtonPressed:" destination="FLN-eK-nOC" eventType="touchUpInside" id="TNY-rf-MwL"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -312,14 +318,25 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="vj7-Q1-fkg">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="9Rt-2i-dcC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="FLN-eK-nOC" id="gry-a0-xOe"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="4mU-0i-RX1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="FLN-eK-nOC" id="IEU-f6-dco"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressField" destination="N4F-hv-LFq" id="RJB-BQ-Lum"/>
+                        <outlet property="cancelBarButton" destination="9Rt-2i-dcC" id="n4T-78-QOW"/>
                         <outlet property="collectionView" destination="RrP-DJ-3eY" id="S5b-0C-T5B"/>
+                        <outlet property="mapView" destination="kwM-o7-k3m" id="BY3-Wm-utX"/>
                         <outlet property="nameField" destination="B0w-NV-qlp" id="gNe-sm-Ei7"/>
+                        <outlet property="saveBarButton" destination="4mU-0i-RX1" id="Nov-cI-xHS"/>
+                        <outlet property="tableView" destination="TdX-SC-F1n" id="Ktc-2h-kS9"/>
                         <segue destination="umD-vl-SaG" kind="presentation" identifier="AddComment" id="qI7-eh-zgg"/>
                     </connections>
                 </viewController>
@@ -373,22 +390,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="9qh-s5-V2h">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="76" id="nB3-vq-d5Z">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="76"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nB3-vq-d5Z" id="8vu-al-aQM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="C7l-Ds-Tes">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Vec-f9-Ix2">
-                                        <rect key="frame" x="0.0" y="138" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vec-f9-Ix2" id="cEL-ZU-9CX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -435,7 +440,7 @@
                             <tableViewSection id="xbs-62-zYk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="278" id="0Zl-iq-JSG">
-                                        <rect key="frame" x="0.0" y="182" width="414" height="278"/>
+                                        <rect key="frame" x="0.0" y="106" width="414" height="278"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Zl-iq-JSG" id="Rdc-CV-POo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="277.5"/>
@@ -489,7 +494,7 @@
                             <tableViewSection id="0w0-aJ-qT8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uQc-7y-c3q">
-                                        <rect key="frame" x="0.0" y="460" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="384" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uQc-7y-c3q" id="L6U-bN-yGe">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>

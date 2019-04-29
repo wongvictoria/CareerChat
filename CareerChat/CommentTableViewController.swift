@@ -19,22 +19,12 @@ class CommentTableViewController: UITableViewController {
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var buttonsBackgroundView: UIView!
     @IBOutlet weak var reviewTextView: UITextView!
-    @IBOutlet var starButtonCollection: [UIButton]!
+   
     
     var posting: Posting!
     var review: Review!
     let dateFormatter = DateFormatter()
-    var rating = 0 {
-        didSet{
-            for starButton in starButtonCollection {
-                let image = UIImage(named: (starButton.tag < rating ? "star-filled": "star-empty"))
-                starButton.setImage(image, for: .normal)
-            }
-            review.rating = rating
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +44,13 @@ class CommentTableViewController: UITableViewController {
     func updateUserInterface() {
         nameLabel.text = posting.name
         addressLabel.text = posting.address
-        rating = review.rating
         reviewTitleField.text = review.title
         enableDisableSaveButton()
         reviewTextView.text = review.text
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         reviewDateLabel.text = "posted: \(dateFormatter.string(from: review.date))"
-        if review.documentID == "" { // this is a new review
+        if review.documentID == "" { // this is a new comment
             addBordersToEditableObjects()
         } else {
             if review.reviewerUserID == Auth.auth().currentUser?.email {
@@ -73,16 +62,6 @@ class CommentTableViewController: UITableViewController {
                 cancelBarButton.title = ""
                 saveBarButton.title = ""
                 postedByLabel.text = "Posted by: \(review.reviewerUserID)"
-                //disable stars
-                for starButton in starButtonCollection {
-                    starButton.backgroundColor = UIColor.white
-                    starButton.adjustsImageWhenDisabled = false
-                    starButton.isEnabled = false
-                    reviewTitleField.isEnabled = false
-                    reviewTextView.isEditable = false
-                    reviewTitleField.backgroundColor = UIColor.white
-                    reviewTextView.backgroundColor = UIColor.white
-                }
             }
         }
     }
@@ -90,7 +69,6 @@ class CommentTableViewController: UITableViewController {
     func addBordersToEditableObjects() {
         reviewTitleField.addBorder(width: 0.5, radius: 5.0, color: .black)
         reviewTextView.addBorder(width: 0.5, radius: 5.0, color: .black)
-        buttonsBackgroundView.addBorder(width: 0.5, radius: 5.0, color: .black)
     }
     
     func enableDisableSaveButton() {
@@ -121,11 +99,6 @@ class CommentTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-    @IBAction func starButtonPressed(_ sender: UIButton) {
-        rating = sender.tag + 1 // ad one since we're zero indexed
-    }
-    
     
     @IBAction func reviewTitleChanged(_ sender: UITextField) {
         enableDisableSaveButton()

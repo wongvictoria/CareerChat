@@ -125,13 +125,13 @@ extension PostingsListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->
         Int {
             return postings.postingArray.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostingsTableViewCell
-        if let currentLocation = currentLocation  {
-            cell.currentLocation = currentLocation
         }
-        cell.configureCell(posting: postings.postingArray[indexPath.row])
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostingsTableViewCell
+            if let currentLocation = currentLocation  {
+            cell.currentLocation = currentLocation
+            }
+            cell.configureCell(posting: postings.postingArray[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
