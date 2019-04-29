@@ -20,12 +20,12 @@ class PostingsListViewController: UIViewController {
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
-    
     var postings: Postings!
     var authUI: FUIAuth!
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation!
+    
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()

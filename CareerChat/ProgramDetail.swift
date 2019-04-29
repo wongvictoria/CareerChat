@@ -67,6 +67,11 @@ class ProgramDetail: NSObject, MKAnnotation {
         self.documentID = documentID
     }
     
+    convenience override init() {
+        let currentUserID = Auth.auth().currentUser?.email ?? "Unknown User"
+        self.init(name: "", address: "", text: "", coordinate: CLLocationCoordinate2D(), companyUserID: currentUserID, date: Date(), documentID: "")
+    }
+    
     convenience init(dictionary: [String: Any]) {
         let name = dictionary["name"] as! String? ?? ""
         let address = dictionary["address"] as! String? ?? ""
@@ -74,14 +79,12 @@ class ProgramDetail: NSObject, MKAnnotation {
         let companyUserID = dictionary["companyUserID"] as! String
         let timeIntervalDate = dictionary["date"] as! TimeInterval? ?? TimeInterval()
         let date = Date(timeIntervalSince1970: timeIntervalDate)
-        self.init(name: name, address: address, text: text, companyUserID: companyUserID, date: date, documentID: "")
+        let latitude = dictionary["latitude"] as! CLLocationDegrees? ?? 0.0
+        let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.init(name: name, address: address, text: text, coordinate: coordinate, companyUserID: companyUserID, date: date, documentID: "")
     }
     
-    
-    convenience override init() {
-        let currentUserID = Auth.auth().currentUser?.email ?? "Unknown User"
-        self.init(name: "", address: "", text: "", companyUserID: currentUserID, date: Date(), documentID: "")
-    }
     
     func saveData(posting: Posting, completed: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()

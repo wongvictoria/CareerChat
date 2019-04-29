@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="216" width="414" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="NYD-0g-gCs" customClass="PostingsTableViewCell" customModule="CareerChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="NYD-0g-gCs" customClass="PostingsTableViewCell" customModule="CareerChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYD-0g-gCs" id="qZU-F6-oxI">
@@ -653,26 +653,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv5-Ln-pZS">
-                                                    <rect key="frame" x="20" y="44" width="374" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i45-XE-FFB">
                                                     <rect key="frame" x="161" y="0.0" width="92" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="DmQ-9x-ljb"/>
                                                     </constraints>
                                                     <state key="normal" title="Lookup Place"/>
+                                                    <connections>
+                                                        <action selector="lookupPlaceButtonPressed:" destination="eLN-8c-jGz" eventType="touchUpInside" id="Q57-RL-LFM"/>
+                                                    </connections>
                                                 </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-bE-aTD">
+                                                    <rect key="frame" x="20" y="45" width="374" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Vv5-Ln-pZS" firstAttribute="top" secondItem="i45-XE-FFB" secondAttribute="bottom" constant="5" id="BDp-Zp-TxP"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Vv5-Ln-pZS" secondAttribute="bottom" constant="2" id="En7-0G-BWf"/>
+                                                <constraint firstItem="BC4-bE-aTD" firstAttribute="centerX" secondItem="i45-XE-FFB" secondAttribute="centerX" id="FuN-RO-Zzi"/>
+                                                <constraint firstItem="BC4-bE-aTD" firstAttribute="leading" secondItem="bhD-qU-e4A" secondAttribute="leadingMargin" id="dcK-cU-4nB"/>
                                                 <constraint firstItem="i45-XE-FFB" firstAttribute="centerX" secondItem="bhD-qU-e4A" secondAttribute="centerX" id="dkD-Ed-EgQ"/>
-                                                <constraint firstItem="Vv5-Ln-pZS" firstAttribute="leading" secondItem="bhD-qU-e4A" secondAttribute="leadingMargin" id="eT1-hp-ZDc"/>
-                                                <constraint firstItem="Vv5-Ln-pZS" firstAttribute="centerX" secondItem="i45-XE-FFB" secondAttribute="centerX" id="sML-CG-isO"/>
+                                                <constraint firstItem="BC4-bE-aTD" firstAttribute="bottom" secondItem="bhD-qU-e4A" secondAttribute="bottomMargin" id="lXM-Jg-Sd1"/>
                                                 <constraint firstItem="i45-XE-FFB" firstAttribute="top" secondItem="bhD-qU-e4A" secondAttribute="top" id="t6C-VG-fuH"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -755,7 +757,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addressLabel" destination="Vv5-Ln-pZS" id="cDv-Ic-LuM"/>
+                        <outlet property="addressField" destination="BC4-bE-aTD" id="GgD-8J-ybV"/>
                         <outlet property="cancelButton" destination="g4t-jP-mDW" id="m2L-9T-C0u"/>
                         <outlet property="companyNameField" destination="r3G-Ed-uNl" id="cPK-7d-gzr"/>
                         <outlet property="dateField" destination="S3V-ST-Ni2" id="a4d-kH-887"/>
