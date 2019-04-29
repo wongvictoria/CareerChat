@@ -14,6 +14,11 @@ import GoogleSignIn
 
 class PostingsListViewController: UIViewController {
     
+    @IBOutlet weak var areYouLabel: UILabel!
+    @IBOutlet weak var orLabel: UILabel!
+    @IBOutlet weak var businessButton: UIButton!
+    @IBOutlet weak var userButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     var postings: Postings!
     var authUI: FUIAuth!
@@ -61,6 +66,10 @@ class PostingsListViewController: UIViewController {
             tableView.isHidden = false
         }
         
+    }
+    
+    @IBAction func userButtonPressed(_ sender: UIButton) {
+        save
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -145,7 +154,7 @@ extension PostingsListViewController: FUIAuthDelegate {
         loginViewController.view.backgroundColor = UIColor.white
         let marginInsets: CGFloat = 0
         let imageHeight: CGFloat = 774
-        let imageY = self.view.center.y
+        let imageY = self.view.center.y - imageHeight
         let logoFrame = CGRect(x: self.view.frame.origin.x, y: imageY, width: self.view.frame.width, height: imageHeight)
         let logoImageView = UIImageView(frame: logoFrame)
         logoImageView.image = UIImage(named: "Home")
