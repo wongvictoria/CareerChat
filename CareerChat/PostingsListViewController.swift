@@ -132,6 +132,7 @@ extension PostingsListViewController: UITableViewDelegate, UITableViewDataSource
             cell.currentLocation = currentLocation
             }
             cell.configureCell(posting: postings.postingArray[indexPath.row])
+            cell.nameLabel.text = postings.postingArray[indexPath.row].name
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

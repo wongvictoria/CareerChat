@@ -87,33 +87,31 @@ class ProgramDetail: NSObject, MKAnnotation {
     
     
     func saveData(posting: Posting, completed: @escaping (Bool) -> ()) {
+        print("in save data")
         let db = Firestore.firestore()
         let dataToSave = self.dictionary
         //if we have saved a record we'll have a documentID
         if self.documentID != "" {
-            let ref = db.collection("postings").document(posting.documentID).collection("programdetails").document(self.documentID)
+            let ref = db.collection("postings").document(self.documentID)
             ref.setData(dataToSave) { (error) in
                 if let error = error {
-                    print ("*** ERROR Updating docuemnt \(self.documentID) \(error.localizedDescription)")
+                    print ("*** ERROR Updating document \(self.documentID) \(error.localizedDescription)")
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref.documentID)")
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
+                    completed(true)
                 }
             }
         } else {
+            print("in else statement")
             var ref: DocumentReference? = nil // let firestore create the new documentID
-            ref = db.collection("postings").document(posting.documentID).collection("programdetails").addDocument(data: dataToSave) { error in
+            ref = db.collection("postings").addDocument(data: dataToSave) { error in
                 if let error = error {
                     print ("*** ERROR creating document in spot \(posting.documentID) for new review doucmentID \(error.localizedDescription)")
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref?.documentID ?? "unknown")")
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
+                    completed(true)
                 }
             }
         }
@@ -126,11 +124,7 @@ class ProgramDetail: NSObject, MKAnnotation {
                 if let error = error {
                     print("ERROR: deleted postingdetail documentID \(self.documentID) \(error.localizedDescription)")
                     completed(false)
-                } else {
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
-                }
+            }
         }
     }
 }

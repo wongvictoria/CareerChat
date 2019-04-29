@@ -56,9 +56,6 @@ class Review {
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref.documentID)")
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
                 }
             }
         } else {
@@ -69,9 +66,7 @@ class Review {
                     completed (false)
                 } else {
                     print ("^^^ Document updated with ref ID \(ref?.documentID ?? "unknown")")
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
+                
                 }
             }
         }
@@ -84,10 +79,6 @@ class Review {
                 if let error = error {
                     print("ERROR: deleted review documentID \(self.documentID) \(error.localizedDescription)")
                     completed(false)
-                } else {
-                    posting.updateAvergeRating {
-                        completed(true)
-                    }
                 }
         }
     }

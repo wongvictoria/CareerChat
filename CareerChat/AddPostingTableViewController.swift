@@ -36,21 +36,9 @@ class AddPostingTableViewController: UITableViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        guard (posting) != nil else {
-            print("*** ERROR: did not have a valid Posting in PostingDetailViewController.")
-            return
-        }
-        if programdetail == nil {
-            programdetail = ProgramDetail()
-        }
-        updateUserInterface()
-        
-        if posting == nil { //we are adding a new record, fields should be editable
-            posting = Posting()
-            getLocation()
-            companyNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
-            addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
-        } else {
+        addressField.isEnabled = false
+        /*if posting != nil {
+            print("in posting is not nil")
             companyNameField.isEnabled = false
             addressField.isEnabled = false
             companyNameField.backgroundColor = UIColor.clear
@@ -58,16 +46,45 @@ class AddPostingTableViewController: UITableViewController {
             saveBarButton.title = ""
             cancelButton.title = ""
             navigationController?.setToolbarHidden(true, animated: true)
+        }*/
+        guard (posting) != nil else {
+            print("*** ERROR: did not have a valid Posting in PostingDetailViewController.")
+            posting = Posting()
+            getLocation()
+            companyNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            deleteButton.isEnabled = false
+            return
         }
+        
+ 
+        /*if programdetail == nil {
+            programdetail = ProgramDetail()
+        }*/
+        updateUserInterface()
+        
+        /*if posting == nil { //we are adding a new record, fields should be editable
+            print("in posting is nil")
+            posting = Posting()
+            getLocation()
+            companyNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        }*/
+
     }
     
     func updateUserInterface() {
+        guard (programdetail) != nil else {
+            print("going in program detail")
+            programdetail = ProgramDetail()
+            return
+        }
         companyNameField.text = programdetail.name
         programNameField.text = programdetail.programText
         addressField.text = programdetail.address
         dateField.text = programdetail.dateText
         descriptionField.text  = programdetail.descriptionText
-        enableDisableSaveButton()
+        //enableDisableSaveButton()
         if programdetail.documentID == "" { // this is a new review
             addBordersToEditableObjects()
         } else {
@@ -104,7 +121,9 @@ class AddPostingTableViewController: UITableViewController {
         programdetail.text = dateField.text!
         programdetail.text = descriptionField.text!
         programdetail.saveData(posting: posting) { (success) in
+            print("in save Data program detail")
             if success {
+                print("successful!!")
                 self.leaveViewController()
             } else {
                 print("*** ERROR: couldn't leave this view controller because data was not saved")
@@ -115,8 +134,10 @@ class AddPostingTableViewController: UITableViewController {
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
+            print("in 1")
             dismiss(animated: true, completion: nil)
         } else {
+            print("in 2")
             navigationController?.popViewController(animated: true)
         }
     }
@@ -160,10 +181,10 @@ extension AddPostingTableViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         posting.name = place.name!
-        posting.address = place.formattedAddress ?? ""
         posting.coordinate = place.coordinate
         dismiss(animated: true, completion: nil)
-        updateUserInterface()
+        addressField.text = place.formattedAddress ?? ""
+        //updateUserInterface()
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {

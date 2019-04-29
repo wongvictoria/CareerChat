@@ -12,7 +12,6 @@ import CoreLocation
 class PostingsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
     var currentLocation: CLLocation!
