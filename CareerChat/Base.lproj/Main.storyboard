@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="206" width="414" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="NYD-0g-gCs" customClass="ProgramsTableViewCell" customModule="CareerChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="NYD-0g-gCs" customClass="PostingsTableViewCell" customModule="CareerChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYD-0g-gCs" id="qZU-F6-oxI">
@@ -58,9 +58,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avg. Rating: 6.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uak-vO-2YV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Avg. Rating: 6.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uak-vO-2YV">
                                                     <rect key="frame" x="286" y="38" width="116" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,15 +75,16 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="WA0-kl-scb" secondAttribute="trailing" constant="8" id="MwI-jm-YBb"/>
                                                 <constraint firstAttribute="bottom" secondItem="WA0-kl-scb" secondAttribute="bottom" constant="22.670000000000002" id="OAg-Sf-QkA"/>
+                                                <constraint firstItem="uak-vO-2YV" firstAttribute="leading" secondItem="WA0-kl-scb" secondAttribute="trailing" constant="-81" id="gw2-64-LRq"/>
                                                 <constraint firstItem="WA0-kl-scb" firstAttribute="leading" secondItem="qZU-F6-oxI" secondAttribute="leading" constant="8" id="k35-0E-lEv"/>
                                                 <constraint firstItem="WA0-kl-scb" firstAttribute="top" secondItem="qZU-F6-oxI" secondAttribute="top" constant="4" id="nq9-CQ-sAv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="distanceLabel" destination="iqZ-qx-2xc" id="bNQ-Y1-VFV"/>
+                                            <outlet property="distanceLabel" destination="iqZ-qx-2xc" id="4Cc-iP-160"/>
                                             <outlet property="locationLabel" destination="iqZ-qx-2xc" id="810-KB-Z6e"/>
-                                            <outlet property="nameLabel" destination="WA0-kl-scb" id="wTO-AF-GVk"/>
-                                            <outlet property="ratingLabel" destination="uak-vO-2YV" id="N77-9G-JYI"/>
+                                            <outlet property="nameLabel" destination="WA0-kl-scb" id="fD2-al-223"/>
+                                            <outlet property="ratingLabel" destination="uak-vO-2YV" id="d8p-fc-STy"/>
                                             <segue destination="FLN-eK-nOC" kind="show" id="7h8-Cl-gll"/>
                                         </connections>
                                     </tableViewCell>
@@ -99,6 +99,9 @@
                                 <state key="normal" title="Business">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="businessButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ynD-nY-Z5o"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4w-q5-7yy">
                                 <rect key="frame" x="158" y="109" width="99" height="20"/>
@@ -160,6 +163,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBarButton" destination="Brk-iK-OnP" id="PsT-Xg-u2T"/>
                         <outlet property="areYouLabel" destination="J4w-q5-7yy" id="6Pg-us-J0N"/>
                         <outlet property="businessButton" destination="dHj-si-dNM" id="oNa-nf-hdc"/>
                         <outlet property="orLabel" destination="zpm-VY-hI8" id="d1d-z3-egd"/>

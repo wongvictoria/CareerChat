@@ -18,7 +18,7 @@ class PostingsListViewController: UIViewController {
     @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var businessButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
-    
+    @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var postings: Postings!
     var authUI: FUIAuth!
@@ -30,12 +30,11 @@ class PostingsListViewController: UIViewController {
         super.viewDidLoad()
         
         authUI = FUIAuth.defaultAuthUI()
-        // You need to adopt a FUIAuthDelegate protocol to receive callback
         authUI?.delegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isHidden = true
+        tableView.isHidden = false
         
         postings = Postings()
         
@@ -68,8 +67,14 @@ class PostingsListViewController: UIViewController {
         
     }
     
+
+    @IBAction func businessButtonPressed(_ sender: UIButton) {
+        self.addBarButton.isEnabled = true
+    }
+
+    
     @IBAction func userButtonPressed(_ sender: UIButton) {
-        save
+        self.addBarButton.isEnabled = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
