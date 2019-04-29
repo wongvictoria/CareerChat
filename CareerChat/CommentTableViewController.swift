@@ -91,14 +91,26 @@ class CommentTableViewController: UITableViewController {
         }
     }
     
+//    func leaveViewController() {
+//        let isPresentingInAddMode = presentingViewController is UINavigationController
+//        if isPresentingInAddMode {
+//            dismiss(animated: true, completion: nil)
+//        } else {
+//            navigationController?.popViewController(animated: true)
+//        }
+//    }
+    
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
+            print("in 1")
             dismiss(animated: true, completion: nil)
         } else {
+            print("in 2")
             navigationController?.popViewController(animated: true)
         }
     }
+    
     
     @IBAction func reviewTitleChanged(_ sender: UITextField) {
         enableDisableSaveButton()
@@ -127,4 +139,6 @@ class CommentTableViewController: UITableViewController {
         saveThenSegue()
     }
 }
+
+
 

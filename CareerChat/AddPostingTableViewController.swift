@@ -116,7 +116,8 @@ class AddPostingTableViewController: UITableViewController {
     }
     
     func saveThenSegue() {
-        programdetail.text = companyNameField.text!
+        programdetail.name = companyNameField.text!
+        programdetail.address = addressField.text!
         programdetail.text = programNameField.text!
         programdetail.text = dateField.text!
         programdetail.text = descriptionField.text!
@@ -131,6 +132,7 @@ class AddPostingTableViewController: UITableViewController {
         }
     }
     
+
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
