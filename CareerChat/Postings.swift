@@ -28,6 +28,7 @@ class Postings {
                 posting.documentID = document.documentID
                 self.postingArray.append(posting)
             }
+            //print("posting array\(self.postingArray)")
             print("posting array here \(self.postingArray[0].name)")
             completed()
         }

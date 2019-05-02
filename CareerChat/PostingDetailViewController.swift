@@ -19,7 +19,10 @@ class PostingDetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-    
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var descriptionField: UILabel!
+    @IBOutlet weak var programField: UITextField!
+
     var posting: Posting!
     var reviews: Reviews!
     var photos: Photos!
@@ -47,12 +50,21 @@ class PostingDetailViewController: UIViewController {
             posting = Posting()
             getLocation()
             nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            programField.addBorder(width: 0.5, radius: 5.0, color: .black)
             addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            dateField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            descriptionField.addBorder(width: 0.5, radius: 5.0, color: .black)
         } else {
             nameField.isEnabled = false
             addressField.isEnabled = false
             nameField.backgroundColor = UIColor.clear
             addressField.backgroundColor = UIColor.white
+            programField.backgroundColor = UIColor.clear
+            dateField.isEnabled = false
+            descriptionField.isEnabled = false
+            programField.isEnabled = false
+            dateField.backgroundColor = UIColor.clear
+            descriptionField.backgroundColor = UIColor.white
             saveBarButton.title = ""
             cancelBarButton.title = ""
             navigationController?.setToolbarHidden(true, animated: true)
@@ -83,6 +95,9 @@ class PostingDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         posting.name = nameField.text!
         posting.address = addressField.text!
+        posting.datetext = dateField.text!
+        posting.programtext = programField.text!
+        posting.text = descriptionField.text!
         switch segue.identifier ?? "" {
         case "AddComment" :
             let navigationController = segue.destination as! UINavigationController
@@ -106,9 +121,18 @@ class PostingDetailViewController: UIViewController {
         nameField.backgroundColor = UIColor.clear
         nameField.isEnabled = false
         nameField.noBorder()
+        programField.backgroundColor = UIColor.clear
+        programField.isEnabled = false
+        programField.noBorder()
         addressField.backgroundColor = UIColor.clear
         addressField.isEnabled = false
         addressField.noBorder()
+        dateField.backgroundColor = UIColor.clear
+        dateField.isEnabled = false
+        dateField.noBorder()
+        descriptionField.backgroundColor = UIColor.clear
+        descriptionField.isEnabled = false
+        descriptionField.noBorder()
     }
     
     func saveCancelAlert(title: String, message: String, segueIdentifier: String) {
@@ -142,7 +166,10 @@ class PostingDetailViewController: UIViewController {
     
     func updateUserInterface() {
         nameField.text = posting.name
+        programField.text = posting.programtext
         addressField.text = posting.address
+        dateField.text = posting.datetext
+        descriptionField.text = posting.text
         updateMap()
     }
     
@@ -152,11 +179,14 @@ class PostingDetailViewController: UIViewController {
         mapView.setCenter(posting.coordinate, animated: true)
     }
     
+        
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
+            print("in 1")
             dismiss(animated: true, completion: nil)
         } else {
+           print("in 2")
             navigationController?.popViewController(animated: true)
         }
     }

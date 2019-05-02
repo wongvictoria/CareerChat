@@ -137,6 +137,7 @@ class CommentTableViewController: UITableViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         saveThenSegue()
+        leaveViewController()
     }
 }
 

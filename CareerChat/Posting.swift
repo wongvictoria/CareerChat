@@ -14,7 +14,9 @@ import MapKit
 class Posting: NSObject, MKAnnotation {
     var name: String
     var address: String
+    var datetext: String
     var text: String
+    var programtext: String
     var coordinate: CLLocationCoordinate2D
     var companyUserID: String
     var documentID: String
@@ -42,28 +44,32 @@ class Posting: NSObject, MKAnnotation {
     var dictionary: [String: Any] {
         return ["name": name, "address": address, "longitude": longitude, "latitude": latitude, "companyUserID": companyUserID]
     }
-    init(name: String, address: String, text: String, coordinate: CLLocationCoordinate2D, companyUserID: String, documentID: String) {
+    init(name: String, address: String, text: String, datetext: String, programtext: String, coordinate: CLLocationCoordinate2D, companyUserID: String, documentID: String) {
         self.name = name
         self.address = address
         self.text = text
+        self.datetext = datetext
+        self.programtext = programtext
         self.coordinate = coordinate
         self.companyUserID = companyUserID
         self.documentID = documentID
         
     }
     convenience override init() {
-        self.init(name: "", address: "", text: "", coordinate: CLLocationCoordinate2D(), companyUserID: "", documentID: "")
+        self.init(name: "", address: "", text: "", datetext: "", programtext: "", coordinate: CLLocationCoordinate2D(), companyUserID: "", documentID: "")
     }
     
     convenience init(dictionary: [String: Any]) {
         let name = dictionary["name"] as! String? ?? ""
         let address = dictionary["address"] as! String? ?? ""
         let text = dictionary["text"] as! String? ?? ""
+        let datetext = dictionary["datetext"] as! String? ?? ""
+        let programtext = dictionary["programtext"] as! String? ?? ""
         let latitude = dictionary["latitude"] as! CLLocationDegrees? ?? 0.0
         let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let companyUserID = dictionary["companyUserID"] as! String? ?? ""
-        self.init(name: name, address: address, text: text, coordinate:  coordinate, companyUserID: companyUserID, documentID: "")
+        self.init(name: name, address: address, text: text, datetext: datetext, programtext: programtext, coordinate:  coordinate, companyUserID: companyUserID, documentID: "")
     }
     
     func saveData(completed: @escaping (Bool) -> ()) {

@@ -17,12 +17,12 @@ class AddPostingTableViewController: UITableViewController {
     @IBOutlet weak var companyNameField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var addressField: UITextField!
-    @IBOutlet weak var programNameField: UITextView!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var lookupPlaceButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var programNameField: UITextField!
     
     var posting: Posting!
     var programdetail: ProgramDetail!
@@ -118,8 +118,8 @@ class AddPostingTableViewController: UITableViewController {
     func saveThenSegue() {
         programdetail.name = companyNameField.text!
         programdetail.address = addressField.text!
-        programdetail.text = programNameField.text!
-        programdetail.text = dateField.text!
+        programdetail.programtext = programNameField.text!
+        programdetail.datetext = dateField.text!
         programdetail.text = descriptionField.text!
         programdetail.saveData(posting: posting) { (success) in
             print("in save Data program detail")

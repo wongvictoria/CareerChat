@@ -17,6 +17,8 @@ class ProgramDetail: NSObject, MKAnnotation {
     var address: String
     var text: String
     var date: Date
+    var datetext: String
+    var programtext: String
     var companyUserID: String
     var documentID: String
     
@@ -41,11 +43,11 @@ class ProgramDetail: NSObject, MKAnnotation {
     }
     
     var programText: String? {
-        return text
+        return programtext
     }
     
     var dateText: String? {
-        return text
+        return datetext
     }
     
     var descriptionText: String? {
@@ -54,14 +56,16 @@ class ProgramDetail: NSObject, MKAnnotation {
     
     var dictionary: [String: Any] {
         let timeIntervalDate = date.timeIntervalSince1970
-        return ["name": name, "address": address, "longitude": longitude, "latitude": latitude, "text": text, "companyUserID": companyUserID, "date": timeIntervalDate, "documentID" : documentID]
+        return ["name": name, "address": address, "longitude": longitude, "latitude": latitude, "text": text, "programtext": programtext, "datetext": datetext, "companyUserID": companyUserID, "date": timeIntervalDate, "documentID" : documentID]
     }
     
-    init(name: String, address: String, text: String, coordinate: CLLocationCoordinate2D, companyUserID: String, date: Date, documentID: String) {
+    init(name: String, address: String, text: String, datetext: String, programtext: String, coordinate: CLLocationCoordinate2D, companyUserID: String, date: Date, documentID: String) {
         self.name = name
         self.address = address
         self.coordinate = coordinate
         self.text = text
+        self.datetext = datetext
+        self.programtext = programtext
         self.date = date
         self.companyUserID = companyUserID
         self.documentID = documentID
@@ -69,20 +73,22 @@ class ProgramDetail: NSObject, MKAnnotation {
     
     convenience override init() {
         let currentUserID = Auth.auth().currentUser?.email ?? "Unknown User"
-        self.init(name: "", address: "", text: "", coordinate: CLLocationCoordinate2D(), companyUserID: currentUserID, date: Date(), documentID: "")
+        self.init(name: "", address: "", text: "", datetext: "", programtext: "", coordinate: CLLocationCoordinate2D(), companyUserID: currentUserID, date: Date(), documentID: "")
     }
     
     convenience init(dictionary: [String: Any]) {
         let name = dictionary["name"] as! String? ?? ""
         let address = dictionary["address"] as! String? ?? ""
         let text = dictionary["text"] as! String? ?? ""
+        let datetext = dictionary["datetext"] as! String? ?? ""
+        let programtext = dictionary["programtext"] as! String? ?? ""
         let companyUserID = dictionary["companyUserID"] as! String
         let timeIntervalDate = dictionary["date"] as! TimeInterval? ?? TimeInterval()
         let date = Date(timeIntervalSince1970: timeIntervalDate)
         let latitude = dictionary["latitude"] as! CLLocationDegrees? ?? 0.0
         let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        self.init(name: name, address: address, text: text, coordinate: coordinate, companyUserID: companyUserID, date: date, documentID: "")
+        self.init(name: name, address: address, text: text, datetext: datetext, programtext: programtext, coordinate: coordinate, companyUserID: companyUserID, date: date, documentID: "")
     }
     
     
