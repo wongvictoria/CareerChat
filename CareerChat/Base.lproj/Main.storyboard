@@ -42,32 +42,32 @@
                                 <rect key="frame" x="0.0" y="216" width="415" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="NYD-0g-gCs" customClass="PostingsTableViewCell" customModule="CareerChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="415" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="yg0-OK-4h2" detailTextLabel="Vzv-0T-XOr" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="NYD-0g-gCs" customClass="PostingsTableViewCell" customModule="CareerChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="415" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYD-0g-gCs" id="qZU-F6-oxI">
-                                            <rect key="frame" x="0.0" y="0.0" width="415" height="59.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NYD-0g-gCs" id="qZU-F6-oxI">
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA0-kl-scb">
-                                                    <rect key="frame" x="8" y="4" width="359" height="33"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="359" id="eHK-HL-yar"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="16"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yg0-OK-4h2">
+                                                    <rect key="frame" x="20" y="14.5" width="167" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Program Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vzv-0T-XOr">
+                                                    <rect key="frame" x="20" y="41" width="121.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="WA0-kl-scb" secondAttribute="trailing" constant="8" id="MwI-jm-YBb"/>
-                                                <constraint firstAttribute="bottom" secondItem="WA0-kl-scb" secondAttribute="bottom" constant="22.670000000000002" id="OAg-Sf-QkA"/>
-                                                <constraint firstItem="WA0-kl-scb" firstAttribute="leading" secondItem="qZU-F6-oxI" secondAttribute="leading" constant="8" id="k35-0E-lEv"/>
-                                                <constraint firstItem="WA0-kl-scb" firstAttribute="top" secondItem="qZU-F6-oxI" secondAttribute="top" constant="4" id="nq9-CQ-sAv"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="WA0-kl-scb" id="fD2-al-223"/>
+                                            <outlet property="nameLabel" destination="yg0-OK-4h2" id="TPm-x7-Fd0"/>
+                                            <outlet property="programLabel" destination="Vzv-0T-XOr" id="dbR-ps-V7y"/>
                                             <segue destination="FLN-eK-nOC" kind="show" identifier="ShowPosting" id="7h8-Cl-gll"/>
                                         </connections>
                                     </tableViewCell>
@@ -332,49 +332,32 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="103" id="Hb8-11-IzI" customClass="PostingReviewsTableViewCell" customModule="CareerChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="496" width="414" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" textLabel="iDp-ce-rOK" detailTextLabel="L85-zh-1BH" rowHeight="71" style="IBUITableViewCellStyleSubtitle" id="Hb8-11-IzI" customClass="PostingReviewsTableViewCell" customModule="CareerChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="496" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hb8-11-IzI" id="2Pc-1p-ng7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x91-e4-WLU">
-                                                    <rect key="frame" x="20" y="57" width="374" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="qgU-u3-VX8"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiV-bo-i9I">
-                                                    <rect key="frame" x="20" y="26" width="374" height="23"/>
-                                                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iDp-ce-rOK">
+                                                    <rect key="frame" x="20" y="13" width="52" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L85-zh-1BH">
+                                                    <rect key="frame" x="20" y="36.5" width="70" height="18.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="trailing" secondItem="2Pc-1p-ng7" secondAttribute="trailingMargin" id="1GK-MR-tB7"/>
-                                                <constraint firstItem="DiV-bo-i9I" firstAttribute="trailing" secondItem="2Pc-1p-ng7" secondAttribute="trailingMargin" id="Cju-kp-YaZ"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="bottom" secondItem="2Pc-1p-ng7" secondAttribute="bottomMargin" id="IpL-1k-vkU"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="top" secondItem="DiV-bo-i9I" secondAttribute="bottom" constant="8" symbolic="YES" id="L3v-0g-foi"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="top" secondItem="DiV-bo-i9I" secondAttribute="bottom" constant="8" id="UL2-3b-6Kh"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="top" secondItem="DiV-bo-i9I" secondAttribute="bottom" constant="8" id="dXh-Vg-xGi"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="leading" secondItem="2Pc-1p-ng7" secondAttribute="leadingMargin" id="juI-Rj-NdD"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="bottom" secondItem="2Pc-1p-ng7" secondAttribute="bottomMargin" id="nFb-BO-mnu"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="leading" secondItem="2Pc-1p-ng7" secondAttribute="leadingMargin" id="nU2-BS-Gqr"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="leading" secondItem="DiV-bo-i9I" secondAttribute="leading" id="tbH-fg-jZP"/>
-                                                <constraint firstItem="DiV-bo-i9I" firstAttribute="top" secondItem="2Pc-1p-ng7" secondAttribute="topMargin" constant="15" id="tkK-Co-fcE"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="trailing" secondItem="2Pc-1p-ng7" secondAttribute="trailingMargin" id="uW4-cZ-Onr"/>
-                                                <constraint firstItem="DiV-bo-i9I" firstAttribute="leading" secondItem="2Pc-1p-ng7" secondAttribute="leadingMargin" id="wSp-aV-zRH"/>
-                                                <constraint firstItem="x91-e4-WLU" firstAttribute="trailing" secondItem="DiV-bo-i9I" secondAttribute="trailing" id="yOK-83-O3J"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="reviewTextLabel" destination="x91-e4-WLU" id="mbI-Uo-v9A"/>
-                                            <outlet property="reviewTitleLabel" destination="DiV-bo-i9I" id="5gy-A6-vCL"/>
+                                            <outlet property="reviewTextLabel" destination="L85-zh-1BH" id="AFu-2D-rez"/>
+                                            <outlet property="reviewTitleLabel" destination="iDp-ce-rOK" id="Azg-L6-PBP"/>
                                             <segue destination="Bsk-PM-z2v" kind="show" identifier="ShowComment" id="VGU-la-u1l"/>
                                         </connections>
                                     </tableViewCell>

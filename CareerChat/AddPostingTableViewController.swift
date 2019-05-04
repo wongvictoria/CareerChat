@@ -53,6 +53,8 @@ class AddPostingTableViewController: UITableViewController {
             getLocation()
             companyNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
             addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            programNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            dateField.addBorder(width: 0.5, radius: 5.0, color: .black)
             deleteButton.isEnabled = false
             return
         }

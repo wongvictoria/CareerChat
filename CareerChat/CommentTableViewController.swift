@@ -91,14 +91,6 @@ class CommentTableViewController: UITableViewController {
         }
     }
     
-//    func leaveViewController() {
-//        let isPresentingInAddMode = presentingViewController is UINavigationController
-//        if isPresentingInAddMode {
-//            dismiss(animated: true, completion: nil)
-//        } else {
-//            navigationController?.popViewController(animated: true)
-//        }
-//    }
     
     func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
@@ -122,6 +114,7 @@ class CommentTableViewController: UITableViewController {
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        leaveViewController()
         review.deleteData(posting: posting) { (success) in
             if success {
                 self.leaveViewController()

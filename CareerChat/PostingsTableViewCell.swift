@@ -12,21 +12,14 @@ import CoreLocation
 class PostingsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-  
+    @IBOutlet weak var programLabel: UILabel!
     
     var currentLocation: CLLocation!
     var posting: Posting!
     
     func configureCell(posting: Posting) {
         nameLabel.text = posting.name
-        
-        //calculate distance here
-//        guard let currentLocation = currentLocation else {
-//            return
-//        }
-//        let distanceInMeters = currentLocation.distance(from: posting.location)
-//        let distanceString = "Distance: \( (distanceInMeters * 0.00062137).roundTo(places: 2)) miles"
-//        distanceLabel.text  = distanceString
+        programLabel.text = posting.programtext
     }
     
 }
